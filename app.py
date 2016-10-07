@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, url_for, session, redirect
-import hashlib
 from utils import auth
 
 app = Flask(__name__)

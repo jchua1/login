@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      body { text-align: center;
+      }
+    </style>
     <title>Welcome Page</title>
   </head>
 
   <body>
-    <center>
-      <h1>Welcome {{ name }}!</h1>
-      <form action = "/logout/">
-	<input type = "submit" value = "Log Out">
-      </form>
-    </center>
+    <h1>Welcome {{ name }}!</h1>
+    <form action = "/logout/">
+      <input type = "submit" value = "Log Out">
+    </form>
   </body>
 </html>

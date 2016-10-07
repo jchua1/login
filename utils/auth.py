@@ -13,6 +13,8 @@ def checkUser(user):
 def register(user, password):
     if checkUser(user) != "":
         return "User already exists."
+    elif len(user) == 0 or len(password) == 0:
+        return "Invalid username/password."
     else:
         w = csv.writer(open("data/users.csv", "a"))
         w.writerow([user, hash(password)])
