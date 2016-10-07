@@ -25,13 +25,20 @@ def authenticate():
     password = request.form["password"]
     m = auth.authenticate(username, password)
     if (m == "Login successful."):
-        print "asdf"
         session["user"] = username
     return render_template("auth.html", message = m)
 
 @app.route("/welcome/")
 def welcome():
-    return render_template("welcome.html", name = session["user"])
+    if "user" in session:
+        return render_template("welcome.html", name = session["user"])
+    else:
+        return redirect(url_for("login"))
+
+@app.route("/logout/")
+def logout():
+    session.pop("user")
+    return redirect(url_for("login"))
 
 if __name__ == "__main__":
     app.debug = True
